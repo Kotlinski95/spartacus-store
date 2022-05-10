@@ -2,12 +2,14 @@
 
 <ng-template cxOutletRef="ProductAddToCartComponent">
     <div class="chat-button">
-        <button class="btnn btn-secondary btn-block" onclick="alert('hello')">
-            My custom Add to Cart Button
-        </button>
+        <app-custom-add-to-cart-button></app-custom-add-to-cart-button>
     </div>
 </ng-template>
 
 <ng-template [cxOutletRef]="pdpOutlets.PRICE" let-product>
     wherre are my price??
+</ng-template>
+
+<ng-template cxOutletRef="header" [cxOutletPos]="outletPosition.AFTER">
+    Custom UI added after the UI.
 </ng-template>

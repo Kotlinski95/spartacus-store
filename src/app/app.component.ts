@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductDetailOutlets } from '@spartacus/storefront';
+import { OutletPosition } from '@spartacus/storefront';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { ProductDetailOutlets } from '@spartacus/storefront';
 })
 export class AppComponent {
   title = 'spartacus-store';
-
+  outletPosition = OutletPosition;
   pdpOutlets = ProductDetailOutlets;
 
   constructor(){

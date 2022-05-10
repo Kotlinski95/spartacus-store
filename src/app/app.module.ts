@@ -1,3 +1,4 @@
+import { CustomPdpModule } from './custom-pdp/custom-pdp.module';
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
@@ -8,10 +9,12 @@ import { AppComponent } from './app.component';
 import { SpartacusModule } from './spartacus/spartacus.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { CustomAddToCartButtonComponent } from './custom/custom-add-to-cart-button/custom-add-to-cart-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomAddToCartButtonComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -26,7 +29,8 @@ import { environment } from '../environments/environment';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    CustomPdpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

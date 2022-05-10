@@ -1,13 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
 $styleVersion: 4.3;
+$useLatestStyles: true;
 $primary: rgb(196, 145, 49);
 // $inverse: grey;
 // $text: red;
 // $theme: '2_3';
+$skipComponentStyles: (cx-add-to-wishlist);
 
 @import '~@spartacus/styles/index';
+body {
+    --cx-white: #d0fef9;
+}
 
 cx-login a{
     color: var(--cx-white);
+}
+
+cx-add-to-wishlist {
+    padding: 0 1.25rem;
+    .button-text{
+        margin-inline-start: 0.3rem;
+    }
+    .button-add-link {
+        padding-inline-start: 0;
+    }
 }
