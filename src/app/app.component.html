@@ -1,1 +1,13 @@
 <cx-storefront></cx-storefront>
+
+<ng-template cxOutletRef="ProductAddToCartComponent">
+    <div class="chat-button">
+        <button class="btnn btn-secondary btn-block" onclick="alert('hello')">
+            My custom Add to Cart Button
+        </button>
+    </div>
+</ng-template>
+
+<ng-template [cxOutletRef]="pdpOutlets.PRICE" let-product>
+    wherre are my price??
+</ng-template>

@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 $styleVersion: 4.3;
+$primary: rgb(196, 145, 49);
+// $inverse: grey;
+// $text: red;
+// $theme: '2_3';
+
 @import '~@spartacus/styles/index';
+
+cx-login a{
+    color: var(--cx-white);
+}
