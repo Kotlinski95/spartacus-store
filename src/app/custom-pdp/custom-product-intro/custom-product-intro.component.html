@@ -1,10 +1,26 @@
 <ng-container *ngIf="product$ | async as product">
-    <h1>{{ product.name }}</h1>
-    <div class="d-flex align-items-center justify-content-between rating">
-        <h3> {{ product.price?.formattedValue }}</h3>
-        <div>
-            <cx-star-rating [rating]="product.averageRating ?? 0" [disabled]="true"></cx-star-rating>
-            <button class="btn btn-link cx-action-link" aria-label="Show 17 reviews, Rated 4.4 out of 5 stars" (click)="showReviews()"> Read all {{ product.numberOfReviews }} reviews </button>
-        </div>
+  <h1>{{ product.name }}</h1>
+  <div class="d-flex align-items-center justify-content-between rating">
+    <h3>{{ product.price?.formattedValue }}</h3>
+    <div>
+      <cx-star-rating
+        [rating]="product.averageRating ?? 0"
+        [disabled]="true"
+      ></cx-star-rating>
+      <button
+        class="btn btn-link cx-action-link"
+        [attr.aria-label]="
+          'productSummary.showReviewsDetailed'
+            | cxTranslate
+              : {
+                  rating: product?.averageRating | number: '1.0-1',
+                  count: product?.numberOfReviews
+                }
+        "
+        (click)="showReviews()"
+      >
+        {{ "productSummary.showReviews" | cxTranslate }} | {{ 'slCustomFeature.subKey' | cxTranslate }}
+      </button>
     </div>
+  </div>
 </ng-container>

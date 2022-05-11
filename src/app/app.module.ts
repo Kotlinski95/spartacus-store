@@ -1,4 +1,5 @@
 import { CustomPdpModule } from './custom-pdp/custom-pdp.module';
+import { AddToCartModule } from './custom-add-to-cart/custom-add-to-cart.module';
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
@@ -9,7 +10,9 @@ import { AppComponent } from './app.component';
 import { SpartacusModule } from './spartacus/spartacus.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ItemCounterModule } from '@spartacus/storefront';
 import { CustomAddToCartButtonComponent } from './custom/custom-add-to-cart-button/custom-add-to-cart-button.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { CustomAddToCartButtonComponent } from './custom/custom-add-to-cart-butt
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserTransferStateModule,
-    CustomPdpModule
+    CustomPdpModule,
+    AddToCartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
