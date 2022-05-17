@@ -1,0 +1,19 @@
+// Add the following import first (this import is required because most styles have a dependency on it)
+@import "~@spartacus/styles/scss/cxbase/mixins";
+// Then import the default component style before extending it (instead of import all styles, we can set direct path to imports styles
+@import "~@spartacus/styles/scss/core";
+@import "~@spartacus/styles/scss/app";
+
+@import "~@spartacus/styles/scss/components";
+:host {
+    --cx-color-primary: rgb(179, 107, 49);
+}
+.custom-add-to-cart-button {
+    @extend %cx-add-to-cart !optional;
+    color: var(--cx-color-primary);
+    padding: 1.25rem 1.25rem 0;
+}
+
+.custom-cx-item-counter{
+    @extend %cx-item-counter !optional;
+}

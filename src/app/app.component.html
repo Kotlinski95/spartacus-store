@@ -1,10 +1,11 @@
 <cx-storefront></cx-storefront>
 
-<ng-template cxOutletRef="ProductAddToCartComponent">
+<!-- This cxOutletRef call require much more size to render in main.js -->
+<!-- <ng-template cxOutletRef="ProductAddToCartComponent">
     <div class="chat-button">
         <app-custom-add-to-cart-button></app-custom-add-to-cart-button>
     </div>
-</ng-template>
+</ng-template> -->
 
 <ng-template [cxOutletRef]="pdpOutlets.PRICE" let-product>
     wherre are my price??

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { translationChunksConfig, translations } from "@spartacus/assets";
-import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig, ConfigModule } from "@spartacus/core";
+import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig, ConfigModule, DeferLoadingStrategy } from "@spartacus/core";
 import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
 
 @NgModule({
@@ -35,6 +35,13 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
     features: {
       level: '4.3'
     }
-  })]
+  }),
+  provideConfig(<FeaturesConfig>{
+    deferredLoading: {
+      strategy: DeferLoadingStrategy.DEFER,
+      intersectionMargin: '50px',
+    }
+  })
+  ]
 })
 export class SpartacusConfigurationModule { }

@@ -18,6 +18,7 @@ import {CustomAddToCartComponentComponent} from './custom-add-to-cart-component/
     provideDefaultConfig(<CmsConfig>{
       cmsComponents: {
         ProductAddToCartComponent: {
+          // component: () => import('./custom-add-to-cart-component/custom-add-to-cart-component.component').then(m => m.CustomAddToCartComponentComponent),
           component: CustomAddToCartComponentComponent,
           data: {
             inventoryDisplay: false,
@@ -35,4 +36,4 @@ import {CustomAddToCartComponentComponent} from './custom-add-to-cart-component/
   declarations: [CustomAddToCartComponentComponent],
   // exports: [CustomAddToCartComponentComponent],
 })
-export class AddToCartModule {}
+export class CustomAddToCartModule {}
