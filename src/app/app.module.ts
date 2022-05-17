@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { CustomLayoutModule } from './custom-layout/custom-layout.module';
 import { CustomPageBestsellersModule } from './custom-page-bestsellers/custom-page-bestsellers.module';
 import { CmsConfig, provideConfig } from '@spartacus/core';
+import { CheckoutModule } from "./configuration/checkout/checkout.module";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CmsConfig, provideConfig } from '@spartacus/core';
     BrowserTransferStateModule,
     CustomLayoutModule,
     CustomPageBestsellersModule,
+    CheckoutModule,
   ],
   providers: [
     provideConfig(<CmsConfig>{
