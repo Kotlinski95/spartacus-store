@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { translationChunksConfig, translations } from "@spartacus/assets";
-import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
+import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig, ConfigModule, DeferLoadingStrategy } from "@spartacus/core";
 import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
 
 @NgModule({
@@ -25,10 +25,23 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
       chunks: translationChunksConfig,
       fallbackLang: 'en'
     },
+  }), provideConfig(<ConfigModule>{
+    direction: {
+      detect: true,
+      default: "ltr",
+      rtlLanguages: ["he", "ar"],
+    },
   }), provideConfig(<FeaturesConfig>{
     features: {
       level: '4.3'
     }
-  })]
+  }),
+  provideConfig(<FeaturesConfig>{
+    deferredLoading: {
+      strategy: DeferLoadingStrategy.DEFER,
+      intersectionMargin: '50px',
+    }
+  })
+  ]
 })
 export class SpartacusConfigurationModule { }

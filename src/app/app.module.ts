@@ -8,10 +8,16 @@ import { AppComponent } from './app.component';
 import { SpartacusModule } from './spartacus/spartacus.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+// import { CustomAddToCartButtonComponent } from './custom/custom-add-to-cart-button/custom-add-to-cart-button.component';
+import { CustomLayoutModule } from './custom-layout/custom-layout.module';
+import { CustomPageBestsellersModule } from './custom-page-bestsellers/custom-page-bestsellers.module';
+import { CmsConfig, provideConfig } from '@spartacus/core';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // CustomAddToCartButtonComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -26,9 +32,40 @@ import { environment } from '../environments/environment';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    CustomLayoutModule,
+    CustomPageBestsellersModule,
   ],
-  providers: [],
+  providers: [
+    provideConfig(<CmsConfig>{
+      featureModules: {
+        CustomAddToCartModule: {
+          module: () =>
+            import('./custom-add-to-cart/custom-add-to-cart.module').then(
+              (m) => m.CustomAddToCartModule
+            ),
+          cmsComponents: ['ProductAddToCartComponent'],
+        },
+        CustomPdpModule: {
+          module: () =>
+            import('./custom-pdp/custom-pdp.module').then(
+              (m) => m.CustomPdpModule
+            ),
+          cmsComponents: ['ProductSummaryComponent'],
+        },
+      },
+    }),
+    // provideConfig(<CmsConfig>{
+    //   cmsComponents: {
+    //     CustomAddToCartButtonComponent: {
+    //       component: () => import('./custom/custom-add-to-cart-button/custom-add-to-cart-button.component').then(m => m.CustomAddToCartButtonComponent),
+    //       data: {
+    //         inventoryDisplay: false,
+    //       },
+    //     },
+    //   },
+    // }),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

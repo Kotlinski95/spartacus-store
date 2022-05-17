@@ -1,0 +1,6 @@
+<ng-container *ngIf="product$ | async as product">
+    <p class="lead">{{ 'productSummary.id' | cxTranslate }}: {{ product.code }}</p>
+    <p class="lead">{{ product.summary }}</p>
+    <p>{{ manufacturer }}</p>
+    <p> <cx-icon [type]="iconTypes.INFO"></cx-icon> Available: {{ product.stock?.stockLevel }} </p>
+</ng-container>
