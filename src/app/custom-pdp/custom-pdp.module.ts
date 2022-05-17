@@ -12,7 +12,7 @@ import { CustomProductIntroComponent } from './custom-product-intro/custom-produ
 import { IconModule, StarRatingModule, MediaModule, CarouselModule} from '@spartacus/storefront';
 import { CustomProductSummaryComponent } from './custom-product-summary/custom-product-summary.component';
 import { translationChunksConfig, translations } from '@spartacus/assets';
-import {customConfig ,customTranslations } from 'src/locales';
+import { customConfig ,customTranslations } from 'src/locales';
 import { CustomProductImagesComponent } from './custom-product-images/custom-product-images.component';
 import { CustomProductImagesZoomComponent } from './custom-product-images-zoom/custom-product-images-zoom.component';
 import { CustomProductZoomTriggerComponent } from './custom-product-zoom-trigger/custom-product-zoom-trigger.component';
@@ -47,12 +47,6 @@ import { CustomProductZoomDialogComponent } from './custom-product-zoom-dialog/c
         resources: translations,
         chunks: translationChunksConfig,
       },
-    }),
-    provideConfig({
-      i18n: {
-        resources: customTranslations,
-        chunks: customConfig,
-      }
     }),
   ],
   schemas: [

@@ -10,6 +10,20 @@ import { ConfigModule } from '@spartacus/core';
     CommonModule,
     ConfigModule.withConfig({
       layoutSlots: {
+        header: {
+          lg: {
+            slots: [
+              'SiteLogo',
+              // 'SiteContext',
+              'SearchBox',
+              'SiteLogin',
+              'MiniCart',
+              'SiteLinks',
+              'NavigationBar',
+
+            ]
+          }
+        },
         LandingPage2Template: {
           lg: {
             slots: ['Section1', 'Section5', 'Section4']

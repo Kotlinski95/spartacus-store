@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
-import { translationChunksConfig, translations } from "@spartacus/assets";
+import { translationChunksConfig, translations as ENGLISH_TRANSLATIONS } from "@spartacus/assets";
 import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig, ConfigModule, DeferLoadingStrategy } from "@spartacus/core";
 import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
+import { customConfig, customTranslations } from 'src/locales';
 
+const GERMAN_TRANSLATIONS = {
+  de: {
+    common:  {
+      searchBox: {
+        placeholder: 'Some german words'
+      }
+    }
+  }
+}
 @NgModule({
   declarations: [],
   imports: [
@@ -15,16 +25,25 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
     },
   }), provideConfig(<SiteContextConfig>{
     context: {
-      currency: ['USD'],
-      language: ['en'],
-      baseSite: ['electronics-spa'],
+      // ONLY IF WE DON'T WANT TO USE BACKEND SETTINGS!
+      // urlParameters: ['customParam','baseSite','language','currency'],
+      // baseSite: ['electronics-spa'],
+      // customParam: ['test'],
     },
   }), provideConfig(<I18nConfig>{
     i18n: {
-      resources: translations,
+      resources: {
+        ...ENGLISH_TRANSLATIONS,
+        ...GERMAN_TRANSLATIONS
+      },
       chunks: translationChunksConfig,
       fallbackLang: 'en'
     },
+  }), provideConfig(<I18nConfig>{
+    i18n: {
+      resources: customTranslations,
+      chunks: customConfig,
+    }
   }), provideConfig(<ConfigModule>{
     direction: {
       detect: true,

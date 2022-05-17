@@ -26,3 +26,7 @@ cx-add-to-wishlist {
         padding-inline-start: 0;
     }
 }
+
+header .SiteContext:after {
+    content: unset;
+}
