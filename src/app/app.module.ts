@@ -10,13 +10,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // import { CustomAddToCartButtonComponent } from './custom/custom-add-to-cart-button/custom-add-to-cart-button.component';
 import { CustomLayoutModule } from './custom-layout/custom-layout.module';
-import { CmsConfig, provideConfig } from '@spartacus/core';
+import { CmsConfig, PRODUCT_NORMALIZER, provideConfig, RoutingConfig } from '@spartacus/core';
 import { CheckoutModule } from "./configuration/checkout/checkout.module";
 import { CustomPdpModule } from "./custom-pdp/custom-pdp.module";
 import { ServicesModule } from "./services/services.module";
 import { CustomRoutingModule } from "./custom-routing/custom-routing.module";
 import { CustomPageBestsellersModule } from "./custom-page-bestsellers/custom-page-bestsellers.module";
-
+import { ComponentsModule } from './components/components.module';
+import { ProductPrettyCategoryNormalizer } from "./services/product-pretty-category.normalizer";
+import { RecentlyBoughtModule } from "./components/recently-bought/recently-bought.module";
 
 @NgModule({
   declarations: [
@@ -39,9 +41,11 @@ import { CustomPageBestsellersModule } from "./custom-page-bestsellers/custom-pa
     BrowserTransferStateModule,
     CustomLayoutModule,
     CustomPageBestsellersModule,
+    RecentlyBoughtModule,
     CheckoutModule,
     ServicesModule,
     CustomRoutingModule,
+    ComponentsModule,
     // CustomPdpModule,
   ],
   providers: [
@@ -63,9 +67,11 @@ import { CustomPageBestsellersModule } from "./custom-page-bestsellers/custom-pa
         },
       },
     }),
+    // { provide: PRODUCT_NORMALIZER, useClass: ProductPrettyCategoryNormalizer, multi: true},
+    // { provide: PRODUCT_NORMALIZER, useClass: ProductPrettyNameNormalizer, multi: true},
+    
     // provideConfig(<CmsConfig>{
-    //   cmsComponents: {
-    //     CustomAddToCartButtonComponent: {
+    //   cmsComponents: {    //     CustomAddToCartButtonComponent: {
     //       component: () => import('./custom/custom-add-to-cart-button/custom-add-to-cart-button.component').then(m => m.CustomAddToCartButtonComponent),
     //       data: {
     //         inventoryDisplay: false,

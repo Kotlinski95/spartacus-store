@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CustomPageBestsellersComponent } from './custom-page-bestsellers.component';
 import { RouterModule } from '@angular/router';
 import { CmsPageGuard } from '@spartacus/storefront';
-
-
+import { UrlModule } from '@spartacus/core';
 
 @NgModule({
   declarations: [
@@ -12,6 +11,7 @@ import { CmsPageGuard } from '@spartacus/storefront';
   ],
   imports: [
     CommonModule,
+    UrlModule,
     RouterModule.forChild([
       {
         path: 'bestsellers',

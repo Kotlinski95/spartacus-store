@@ -5,6 +5,7 @@ import { MyActiveCartService } from './my-active-cart.service';
 import { SearchBoxComponentService } from '@spartacus/storefront';
 import { MySearchBoxService } from './my-search-box.service';
 import { ProductPrettyNameNormalizer } from './product-pretty-name.normalizer';
+import { ProductPrettyCategoryNormalizer } from './product-pretty-category.normalizer';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProductPrettyNameNormalizer } from './product-pretty-name.normalizer';
     { provide: ActiveCartService, useClass: MyActiveCartService },
     { provide: SearchBoxComponentService, useClass: MySearchBoxService },
     { provide: PRODUCT_NORMALIZER, useClass: ProductPrettyNameNormalizer, multi: true},
+    { provide: PRODUCT_NORMALIZER, useClass: ProductPrettyCategoryNormalizer, multi: true},
   ]
 })
 export class ServicesModule { }

@@ -1,1 +1,7 @@
 <p>custom-page-bestsellers works!</p>
+<a [routerLink]="{ cxRoute: 'product', params: { code: '300938'}} | cxUrl">Product </a>
+
+<a [routerLink]="{cxRoute:'cart'} | cxUrl">Cart </a> <br />
+
+<p> Awesome link:</p>
+<button (click)="goToRandomProduct()">Lets magic happen</button>
